@@ -11,18 +11,19 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
-        //
-    }
+     public function register()
+     {
+       // System
+       require_once app_path() . '/Helpers/System/Default.php';
+     }
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
+     /**
+      * Bootstrap any application services.
+      *
+      * @return void
+      */
+     public function boot()
+     {
+         date_default_timezone_set('Asia/Jakarta');
+     }
 }
