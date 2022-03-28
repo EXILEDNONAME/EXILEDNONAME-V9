@@ -7,7 +7,7 @@ var KTTinymce = function () {
 
     tinymce.init({
       selector: '#ex-textarea',
-      menubar: false,
+      menubar: true,
       toolbar: false,
       statusbar: false,
       height: 9000,
@@ -16,6 +16,7 @@ var KTTinymce = function () {
 
     tinymce.init({
       selector: '#ex-textarea-1',
+
       menubar: false,
       toolbar: false,
       statusbar: false,

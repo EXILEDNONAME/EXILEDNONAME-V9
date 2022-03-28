@@ -6,7 +6,8 @@ var KTSummernoteDemo = function () {
     var demos = function () {
         $('.summernote').summernote({
             height: 400,
-            tabsize: 2
+            tabsize: 2,
+            toolbar: false
         });
     }
 
