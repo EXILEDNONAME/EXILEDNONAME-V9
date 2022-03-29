@@ -1,9 +1,13 @@
-- Login Via Email, Phone or Username
-- Edit Form Description to Summernote Textarea (Edit Page Dummy Table General)
+- XX Edit Models Access
+- XX Login Via Email, Phone or Username
+- XX Edit Page Login & Register
+- XX Edit Form Description to Summernote Textarea (Edit Page Dummy Table General)
+- Edit Page Textarea Line Height Style
+- Edit Chart Created & Updated
+
 - Edit Page Statistic
 - Login API Via Postman
 
-- Edit Page Login & Register
 - Create Page System Sidebar menu Dynamic
 
 - Create Page Forgot And Verify At Register

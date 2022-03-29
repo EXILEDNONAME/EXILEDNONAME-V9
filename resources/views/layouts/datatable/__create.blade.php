@@ -45,9 +45,9 @@
           </div>
           @endif
 
-          <div class="summernote" id="kt_summernote_1"></div>
 
           @include($path . 'form', ['formMode' => 'create'])
+          
 
           <div class="form-group row">
             <label class="col-lg-3 col-form-label"> Active </label>

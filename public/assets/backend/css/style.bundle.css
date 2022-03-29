@@ -61514,3 +61514,7 @@ body {
 @media (max-width: 425px) {
   .offcanvas-mobile {
     width: 90% !important; } }
+
+    .note-editor .note-editable {
+        line-height: 0.5;
+    }
