@@ -47,7 +47,7 @@
 
 
           @include($path . 'form', ['formMode' => 'create'])
-          
+
 
           <div class="form-group row">
             <label class="col-lg-3 col-form-label"> Active </label>
@@ -78,5 +78,4 @@
 <script src="/assets/backend/js/pages/crud/forms/editors/summernote.js?v=7.0.5"></script>
 <script src="/assets/backend/plugins/custom/tinymce/tinymce.bundle.js?v=7.0.5"></script>
 <script src="/assets/backend/js/pages/crud/forms/editors/tinymce.js?v=7.0.5"></script>
-<script src="/assets/backend/js/pages/crud/forms/widgets/bootstrap-datetimepicker.js"></script>
 @endpush

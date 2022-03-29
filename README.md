@@ -2,10 +2,13 @@
 - XX Login Via Email, Phone or Username
 - XX Edit Page Login & Register
 - XX Edit Form Description to Summernote Textarea (Edit Page Dummy Table General)
-- Edit Chart Created & Updated
-- Edit Page Show QRCode
+- XX Edit Chart Created & Updated
+- XX Edit Page Show QRCode
+- XX Edit Page Profile
+- Edit Page Statistic to Table
 
-- Edit Page Statistic
+- Edit Page Messages
+- Edit Page Documentation
 - Login API Via Postman
 
 - Create Page System Sidebar menu Dynamic
