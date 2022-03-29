@@ -2,8 +2,8 @@
 - XX Login Via Email, Phone or Username
 - XX Edit Page Login & Register
 - XX Edit Form Description to Summernote Textarea (Edit Page Dummy Table General)
-- Edit Page Textarea Line Height Style
 - Edit Chart Created & Updated
+- Edit Page Show QRCode
 
 - Edit Page Statistic
 - Login API Via Postman

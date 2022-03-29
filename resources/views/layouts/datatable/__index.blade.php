@@ -782,10 +782,12 @@ var KTApexChartsDemo = function () {
     const apexChart = "#charts";
     var created = [{{ chart_created($model) }}];
     var updated = [{{ chart_updated($model) }}];
+    var deleted = [{{ chart_deleted($model) }}];
     var options = {
       series: [
         { name: 'Created', data: created },
         { name: 'Updated', data: updated },
+        { name: 'Deleted', data: deleted },
       ],
       chart: {
         height: 350,
@@ -802,14 +804,14 @@ var KTApexChartsDemo = function () {
       },
       grid: {
         row: {
-          colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+          colors: ['#f3f3f3', 'transparent', 'transparent'],
           opacity: 0.5
         },
       },
       xaxis: {
         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       },
-      colors: [success, warning]
+      colors: [success, warning, danger]
     };
     var chart = new ApexCharts(document.querySelector(apexChart), options);
     chart.render();
