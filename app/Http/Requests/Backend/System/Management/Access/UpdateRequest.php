@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Backend\System\Management\Access;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class UpdateRequest extends FormRequest
   public function rules()
   {
     return [
-      'name' => 'required|min:3',
+      'name' => 'required|min:3|unique:accesses,name,'.$this->id,
     ];
   }
 }

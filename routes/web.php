@@ -91,3 +91,22 @@ Route::group([
   Route::get('trash', 'RelationController@trash')->name('trash');
   Route::resource('/', 'RelationController')->parameters(['' => 'id']);
 });
+
+// MANAGEMENTS - ACCESSES
+Route::group([
+  'as' => 'system.management.access.',
+  'prefix' => 'dashboard/managements/accesses',
+  'namespace' => 'App\Http\Controllers\Backend\System\Management',
+], function(){
+  Route::get('active/{id}', 'AccessController@active')->name('active');
+  Route::get('inactive/{id}', 'AccessController@inactive')->name('inactive');
+  Route::get('restore/{id}', 'AccessController@restore')->name('restore');
+  Route::get('restoreall', 'AccessController@restoreall')->name('restore-all');
+  Route::get('delete-permanent/{id}', 'AccessController@delete_permanent')->name('delete-permanent');
+  Route::get('delete-permanentall', 'AccessController@delete_permanentall')->name('delete-permanentall');
+  Route::get('delete/{id}', 'AccessController@delete')->name('delete');
+  Route::get('deleteall', 'AccessController@deleteall')->name('delete-all');
+  Route::get('history', 'AccessController@history')->name('history');
+  Route::get('trash', 'AccessController@trash')->name('trash');
+  Route::resource('/', 'AccessController')->parameters(['' => 'id']);
+});

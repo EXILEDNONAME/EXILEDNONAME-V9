@@ -13,6 +13,3 @@
     @error('description') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
   </div>
 </div>
-
-<!-- <div class="summernote" id="kt_summernote_1" name="description"></div> -->
-<!-- <textarea class=" form-control" id="kt_summernote_1" name="description"></textarea> -->

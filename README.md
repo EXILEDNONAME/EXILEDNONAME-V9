@@ -7,6 +7,8 @@
 - XX Edit Page Profile
 - XX Create Custom Page 404 Not Found
 - XX Edit Page Statistic to Table
+- XX Page Management Access
+- Page Management Users
 
 - NEXT
 - Edit Page Messages
