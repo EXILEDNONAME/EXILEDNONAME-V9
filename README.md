@@ -9,6 +9,8 @@
 - XX Edit Page Statistic to Table
 - XX Page Management Access
 - XX Page Management Users
+- Edit Reset Password Via Email
+
 - Exclude User Cant Delete Data
 
 - NEXT

@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\ResetPasswordNotification;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -22,6 +23,10 @@ class User extends Authenticatable {
 
   public function getActivitylogOptions(): LogOptions {
     return LogOptions::defaults()->logOnly(['*']);
+  }
+
+  public function sendPasswordResetNotification($token) {
+    $this->notify(new ResetPasswordNotification($token));
   }
 
   public function accesses(){
