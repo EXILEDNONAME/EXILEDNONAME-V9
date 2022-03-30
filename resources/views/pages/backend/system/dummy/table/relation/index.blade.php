@@ -2,7 +2,7 @@
 @push('title', 'Table Relations')
 
 @push('table-header')
-<th> ID General </th>
+<th> General </th>
 <th> Description </th>
 @endpush
 

@@ -9,7 +9,10 @@
 <div class="form-group row">
   <label class="col-lg-3 col-form-label"> Description </label>
   <div class="col-lg-9">
-    {!! Form::textarea('description', (isset($data->description) ? $data->description : ''), ['id' => 'ex-textarea', 'class' => $errors->has('description') ? 'form-control is-invalid' : 'form-control']) !!}
+    {!! Form::textarea('description', (isset($data->description) ? $data->description : ''), ['class' => $errors->has('description') ? 'summernote form-control is-invalid' : 'summernote form-control', 'contentEditable' => 'true']) !!}
     @error('description') <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span> @enderror
   </div>
 </div>
+
+<!-- <div class="summernote" id="kt_summernote_1" name="description"></div> -->
+<!-- <textarea class=" form-control" id="kt_summernote_1" name="description"></textarea> -->

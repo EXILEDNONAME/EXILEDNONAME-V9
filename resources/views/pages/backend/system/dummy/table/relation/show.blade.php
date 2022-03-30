@@ -3,7 +3,7 @@
 
 @push('content-body')
 <tr>
-  <td class="align-middle font-weight-bold"> ID General </td>
+  <td class="align-middle font-weight-bold"> General </td>
   <td class="align-middle"> {!! $data->dummy_table_generals->name !!} </td>
 </tr>
 <tr>

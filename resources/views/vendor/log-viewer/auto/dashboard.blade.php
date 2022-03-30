@@ -195,26 +195,30 @@
       </div>
       <div class="card-body">
 
-        <div class="row">
-          <div class="col-lg-12">
-          <table width="100%" class="table table-striped-table-bordered table-hover table-checkable" id="exilednoname">
-            <thead>
-              <th> Level </th>
-              <th> Count </th>
-              <th> Percent </th>
-            </thead>
-            <tbody>
-            @foreach($percents as $level => $item)
-            <tr>
-              <td> {{ $item['name'] }} </td>
-              <td> {{ $item['count'] }} </td>
-              <td> {{ $item['percent'] }}% </td>
-            </tr>
-            @endforeach
-          </tbody>
-          </table>
-        </div>
-        </div>
+
+            <table width="100%" class="table table-striped-table-bordered table-hover table-checkable" id="exilednoname">
+              <thead>
+                <th> Level </th>
+                <th> Count </th>
+                <th> Progress </th>
+              </thead>
+              <tbody>
+                @foreach($percents as $level => $item)
+                @if ($item['name'] != null && $item['count'] != null)
+                <tr>
+                  <td> {{ $item['name'] }} </td>
+                  <td> {{ $item['count'] }} items, {{ $item['percent'] }}% </td>
+                  <td class="align-middle">
+                    @if ( $item['percent'] == 100 ) <div class="progress"><div class="progress-bar bg-success" role="progressbar" style="width: {{ $item['percent'] }}%"></div></div>
+                    @elseif ( $item['percent'] < 100 ) <div class="progress"><div class="progress-bar bg-warning" role="progressbar" style="width: {{ $item['percent'] }}%"></div></div>
+                    @endif
+                  </td>
+                </tr>
+                @endif
+                @endforeach
+              </tbody>
+            </table>
+        
       </div>
     </div>
   </div>

@@ -224,7 +224,9 @@
                           </div>
                           <div class="d-flex align-items-center justify-content-between">
                             <div class="mr-2"><span class="font-weight-bold text-warning"> {{ trans("default.label.item-updated") }} </span><br>
+                              @if (!empty($item['properties']['old']['name']))
                               From <b>{{ $item['properties']['old']['name'] }}</b> to <b>{{ $item['properties']['attributes']['name'] }}</b>
+                              @endif
                             </div>
                             <div class="dropdown ml-2" data-toggle="tooltip" title="View" data-placement="left">
                               <span class="text-muted pull-right">

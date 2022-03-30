@@ -5,8 +5,10 @@
 - XX Edit Chart Created & Updated
 - XX Edit Page Show QRCode
 - XX Edit Page Profile
-- Edit Page Statistic to Table
+- XX Create Custom Page 404 Not Found
+- XX Edit Page Statistic to Table
 
+- NEXT
 - Edit Page Messages
 - Edit Page Documentation
 - Login API Via Postman
