@@ -30,6 +30,7 @@ return new class extends Migration
          $table->integer('status')->default(1);
          $table->foreign('id_access')->references('id')->on('accesses')->onDelete('restrict')->onUpdate('restrict');
          $table->timestamps();
+         $table->softDeletes();
        });
      }
 

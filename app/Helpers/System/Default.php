@@ -1,6 +1,6 @@
 <?php
 
-use App\Access;
+use App\Models\Access;
 use Spatie\Activitylog\Models\Activity;
 use App\Models\Backend\System\Dummy\Table\General;
 

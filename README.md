@@ -9,6 +9,7 @@
 - XX Edit Page Statistic to Table
 - XX Page Management Access
 - Page Management Users
+- Exclude User Cant Delete Data
 
 - NEXT
 - Edit Page Messages

@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Backend\System\Management;
 use Auth;
 use DataTables;
 use Redirect,Response;
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
+use App\Http\Controllers\Controller;
+use Spatie\Activitylog\Models\Activity;
 
 use App\Http\Requests\Backend\System\Management\User\StoreRequest;
 use App\Http\Requests\Backend\System\Management\User\UpdateRequest;
@@ -27,7 +28,7 @@ class UserController extends Controller {
     $this->middleware('auth');
     $this->url = '/dashboard/managements/users';
     $this->path = 'pages.backend.system.management.user.';
-    $this->model = 'App\User';
+    $this->model = 'App\Models\User';
 
     if (request('date_start') && request('date_end')) { $this->data = $this->model::orderby('date_start', 'desc')->whereBetween('date_start', [request('date_start'), request('date_end')])->get(); }
     else { $this->data = $this->model::get(); }
@@ -193,13 +194,85 @@ class UserController extends Controller {
 
   public function deleteall(Request $request) {
     if ($request->EXILEDNONAME == 1) {
-      return Response::json($data);
+      return Response::json('', 500);
     }
     else {
       $exilednoname = $request->EXILEDNONAME;
       $this->model::whereIn('id',explode(",",$exilednoname))->delete();
       return Response::json($exilednoname);
     }
+  }
+
+  /**
+  **************************************************
+  * @return TRASH
+  * @return RESTORE
+  * @return RESTORE-ALL
+  * @return DELETE-PERMANENT
+  * @return DELETE-PERMANENT-ALL
+  **************************************************
+  **/
+
+  public function trash() {
+    $data = $this->model::onlyTrashed()->get();
+    if(request()->ajax()) {
+      return DataTables::of($data)
+      ->editColumn('deleted_at', function($order) { return \Carbon\Carbon::parse($order->deleted_at)->format('d F Y, H:i'); })
+      ->rawColumns(['description'])
+      ->addIndexColumn()
+      ->make(true);
+    }
+    return view($this->path . 'trash', compact('data'));
+  }
+
+  public function restore($id) {
+    $data = $this->model::withTrashed()->findOrFail($id);
+    if ($data->trashed()) {
+      $data->restore();
+      $data = $this->model::where('id', $id)->update(['deleted_at' => NULL]);
+      return Response::json($data);
+    } else { return Response::json($data);}
+  }
+
+  public function restoreall(Request $request) {
+    $exilednoname = $request->EXILEDNONAME;
+    $this->model::whereIn('id',explode(",",$exilednoname))->restore();
+    return Response::json($exilednoname);
+  }
+
+  public function delete_permanent($id) {
+    $data = $this->model::withTrashed()->findOrFail($id);
+    if(!$data->trashed()) { return Response::json($data); }
+    else {
+      $data->forceDelete();
+      return Response::json($data);
+    }
+  }
+
+  public function delete_permanentall(Request $request) {
+    $exilednoname = $request->EXILEDNONAME;
+    $this->model::whereIn('id',explode(",",$exilednoname))->forceDelete();
+    return Response::json($exilednoname);
+  }
+
+  /**
+  **************************************************
+  * @return HISTORY
+  **************************************************
+  **/
+
+  public function history() {
+    $data = Activity::where('subject_type', $this->model)->orderby('updated_at', 'desc')->get();
+    if(request()->ajax()) {
+      return DataTables::of($data)
+      ->editColumn('subjects', function($order) { if(!empty($order->properties['attributes']['name'])) { return $order->properties['attributes']['name']; } else { return $order->properties['old']['name']; }})
+      ->editColumn('causer_id', function($order) { return $order->causer->name; })
+      ->editColumn('updated_at', function($order) { return \Carbon\Carbon::parse($order->updated_at)->format('d F Y, H:i'); })
+      ->rawColumns(['description'])
+      ->addIndexColumn()
+      ->make(true);
+    }
+    return view($this->path . 'history', compact('data'));
   }
 
 }

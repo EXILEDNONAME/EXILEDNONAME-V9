@@ -1,2 +1,2 @@
-@extends('layouts.datatable.__edit', ['status' => 'false', 'daterange' => 'false', 'page' => 'edit'])
-@push('title', 'Management Users')
+@extends('layouts.datatable.__edit', ['page' => 'edit', 'status' => 'false', 'daterange' => 'false'])
+@push('title', 'Management Accesses')

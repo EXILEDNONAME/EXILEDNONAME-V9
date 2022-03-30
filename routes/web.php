@@ -110,3 +110,22 @@ Route::group([
   Route::get('trash', 'AccessController@trash')->name('trash');
   Route::resource('/', 'AccessController')->parameters(['' => 'id']);
 });
+
+// MANAGEMENTS - USERS
+Route::group([
+  'as' => 'system.management.user.',
+  'prefix' => 'dashboard/managements/users',
+  'namespace' => 'App\Http\Controllers\Backend\System\Management',
+], function(){
+  Route::get('active/{id}', 'UserController@active')->name('active');
+  Route::get('inactive/{id}', 'UserController@inactive')->name('inactive');
+  Route::get('restore/{id}', 'UserController@restore')->name('restore');
+  Route::get('restoreall', 'UserController@restoreall')->name('restore-all');
+  Route::get('delete-permanent/{id}', 'UserController@delete_permanent')->name('delete-permanent');
+  Route::get('delete-permanentall', 'UserController@delete_permanentall')->name('delete-permanentall');
+  Route::get('delete/{id}', 'UserController@delete')->name('delete');
+  Route::get('deleteall', 'UserController@deleteall')->name('delete-all');
+  Route::get('history', 'UserController@history')->name('history');
+  Route::get('trash', 'UserController@trash')->name('trash');
+  Route::resource('/', 'UserController')->parameters(['' => 'id']);
+});

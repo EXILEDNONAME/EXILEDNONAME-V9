@@ -7,43 +7,25 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Activitylog\Traits\LogsActivity;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\Activitylog\LogOptions;
 use App\Models\Access;
 
-class User extends Authenticatable
-{
-    use HasApiTokens, HasFactory, Notifiable;
+class User extends Authenticatable {
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+  use HasApiTokens, HasFactory, Notifiable, LogsActivity, SoftDeletes;
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+  protected $fillable = ['id_access', 'username', 'name', 'email', 'phone', 'password', 'address_1', 'address_2'];
+  protected $hidden = [ 'password', 'remember_token'];
+  protected $casts = ['email_verified_at' => 'datetime'];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+  public function getActivitylogOptions(): LogOptions {
+    return LogOptions::defaults()->logOnly(['*']);
+  }
 
-    public function accesses(){
-      return $this->belongsTo(Access::class, 'id_access');
-    }
+  public function accesses(){
+    return $this->belongsTo(Access::class, 'id_access');
+  }
+
 }
