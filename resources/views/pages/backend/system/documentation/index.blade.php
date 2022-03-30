@@ -3,47 +3,6 @@
 
 @push('body')
 <div class="row">
-  <div class="col-lg-3">
-    <div class="card card-custom bgi-no-repeat card-stretch gutter-b" style="background-position: right top; background-size: 30% auto; background-image: url(/assets/backend/media/svg/shapes/abstract-4.svg)">
-      <div class="card-body" style="">
-        <center>
-          <a href="{{ URL::Current() }}/generals" class="text-info"><b> GENERALS </b></a><br>
-          <span class="text-danger"> {{ \DB::table('dummy_table_generals')->get()->count() }} </span>
-        </center>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3">
-    <div class="card card-custom bgi-no-repeat card-stretch gutter-b" style="background-position: right top; background-size: 30% auto; background-image: url(/assets/backend/media/svg/shapes/abstract-4.svg)">
-      <div class="card-body" style="">
-        <center>
-          <a href="{{ URL::Current() }}/relations" class="text-info"><b> RELATIONS </b></a><br>
-        </center>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3">
-    <div class="card card-custom bgi-no-repeat card-stretch gutter-b" style="background-position: right top; background-size: 30% auto; background-image: url(/assets/backend/media/svg/shapes/abstract-4.svg)">
-      <div class="card-body" style="">
-        <center>
-          <a href="{{ URL::Current() }}/invoices" class="text-info"><b> INVOICES </b></a>
-        </center>
-      </div>
-    </div>
-  </div>
-  <div class="col-lg-3">
-    <div class="card card-custom bgi-no-repeat card-stretch gutter-b" style="background-position: right top; background-size: 30% auto; background-image: url(/assets/backend/media/svg/shapes/abstract-4.svg)">
-      <div class="card-body" style="">
-        <center>
-          <a href="{{ URL::Current() }}/reports" class="text-info"><b> VERSION </b></a><br>
-          <span class="text-danger"> 1.0 </span>
-        </center>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="row">
   <div class="col-xl-12">
     <div class="card card-custom gutter-b" data-card="true">
       <div class="card-body">
@@ -72,32 +31,28 @@
                 <tr>
                   <td> Name </td>
                   <td> : </td>
-                  <td> Naufal Haidir Ridha </td>
+                  <td> {{ env('CONTACT_NAME')}} </td>
                </tr>
                 <tr>
                   <td> Email </td>
                   <td> : </td>
-                  <td> naufalhaidirridha@rocketmail.com </td>
+                  <td> {{ env('CONTACT_EMAIL')}} </td>
                </tr>
                 <tr>
                   <td> Address </td>
                   <td> : </td>
-                  <td> Bandung, West Java </td>
+                  <td> {{ env('CONTACT_ADDRESS')}} </td>
                </tr>
                 <tr>
                   <td> Phone </td>
                   <td> : </td>
-                  <td> 08112448111 </td>
+                  <td> {{ env('CONTACT_PHONE')}} </td>
                </tr>
              </table>
             </div>
             <div class="tab-pane fade" id="release_note" role="tabpanel" aria-labelledby="release-note-tab">
-              Application Version 1.0 <br>
-              Base Application : PHP Framework Laravel V6 <br>
-              Features : <br>
-              - File Manager <br>
-              - Generator Pages <br>
-              - Messages
+              Application Version {{ env('APP_VERSION') }} <br>
+              Base Application : PHP Framework Laravel V9
             </div>
           </div>
         </div>

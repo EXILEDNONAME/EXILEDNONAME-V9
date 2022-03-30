@@ -28,7 +28,11 @@
               <td width="10px"></td>
               <td>
                 <div class="image-input image-input-outline image-input-circle" id="kt_user_avatar" name="profile_avatar" style="background-image: url(/assets/backend/media/users/blank.png)">
+                  @if (strlen(Auth::User()->profile_avatar) == 1)
+                  <div class="image-input-wrapper" value="{{ Auth::User()->profile_avatar }}" style="background-image: url(/assets/backend/media/users/blank.png)"></div>
+                  @else
                   <div class="image-input-wrapper" value="{{ Auth::User()->profile_avatar }}" style="background-image: url(/profile_avatar/user/{{ Auth::User()->id}}/{{ Auth::User()->profile_avatar}})"></div>
+                  @endif
                   <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
                     <i class="fa fa-pen icon-sm text-muted"></i>
                     <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg" />
