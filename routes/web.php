@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('errors.404-custom');
+  return view('errors.404-custom');
 });
 
 Auth::routes();
