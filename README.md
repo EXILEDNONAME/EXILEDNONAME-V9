@@ -1,10 +1,12 @@
+- Create Page Generator API Profile Login
+- Setting Personal Access Token (Login API Via Postman)
 - Create Forgot Password Send To Email
 - Edit Reset Password Via Email
 - Access User Cant Delete Data
 
 - NEXT
 - Edit Page Messages
-- Login API Via Postman
+
 - Create Page System Sidebar menu Dynamic
 - Create Page Forgot And Verify At Register
 
