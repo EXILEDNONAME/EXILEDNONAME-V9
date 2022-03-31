@@ -5,7 +5,7 @@
       <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">Hi,</span>
       <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3"> {{ Auth::User()->name }} </span>
       <div class="symbol symbol-35 symbol-circle">
-        @if (strlen(Auth::User()->profile_avatar) == 1)
+        @if (Auth::User()->profile_avatar == 1 || Auth::User()->profile_avatar == null)
         <div class="symbol-label" style="background-image:url('/assets/backend/media/users/blank.png')"></div>
         @else
         <div class="symbol-label" style="background-image:url('/profile_avatar/user/{{ Auth::User()->id}}/{{ Auth::User()->profile_avatar}}')"></div>

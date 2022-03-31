@@ -28,8 +28,8 @@
               <td width="10px"></td>
               <td>
                 <div class="image-input image-input-outline image-input-circle" id="kt_user_avatar" name="profile_avatar" style="background-image: url(/assets/backend/media/users/blank.png)">
-                  @if (strlen(Auth::User()->profile_avatar) == 1)
-                  <div class="image-input-wrapper" value="{{ Auth::User()->profile_avatar }}" style="background-image: url(/assets/backend/media/users/blank.png)"></div>
+                  @if (Auth::User()->profile_avatar == 1 || Auth::User()->profile_avatar == null)
+                  <div class="image-input-wrapper" style="background-image: url(/assets/backend/media/users/blank.png)"></div>
                   @else
                   <div class="image-input-wrapper" value="{{ Auth::User()->profile_avatar }}" style="background-image: url(/profile_avatar/user/{{ Auth::User()->id}}/{{ Auth::User()->profile_avatar}})"></div>
                   @endif

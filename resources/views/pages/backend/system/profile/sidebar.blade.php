@@ -4,7 +4,7 @@
       <hr>
       <div class="d-flex align-items-center">
         <div class="symbol symbol-60 symbol-circle symbol-xl-50 mr-5 align-self-start align-self-xxl-center">
-          @if (strlen(Auth::User()->profile_avatar) == 1)
+          @if (Auth::User()->profile_avatar == 1 || Auth::User()->profile_avatar == null)
           <div class="symbol-label" style="background-image:url('/assets/backend/media/users/blank.png')"></div>
           @else
           <div class="symbol-label" style="background-image:url('/profile_avatar/user/{{ Auth::User()->id}}/{{ Auth::User()->profile_avatar}}')"></div>
