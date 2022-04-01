@@ -8,6 +8,7 @@ use Redirect,Response;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use Spatie\Activitylog\Models\Activity;
 
@@ -91,7 +92,7 @@ class UserController extends Controller {
       return redirect()->back()->withInput($request->all())->with('error', trans('default.notification.error.password-confirm'));
     }
 
-    User::create([
+    $user = User::create([
       'id_access' => $request->id_access,
       'name'      => $request->name,
       'username'  => $request->username,

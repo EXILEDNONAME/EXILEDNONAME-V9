@@ -3,6 +3,7 @@
 - Create Forgot Password Send To Email
 - Edit Reset Password Via Email
 - Access User Cant Delete Data
+- Management User Web Admin Cant Delete
 
 - NEXT
 - Edit Page Messages

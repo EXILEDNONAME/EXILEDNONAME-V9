@@ -9,7 +9,8 @@
     <div class="card card-custom">
         <div class="card-body pt-4">
           <hr>
-          TEST
+          @php $token = Auth::user()->createToken('test'); @endphp
+          {{ Auth::user()->createToken('test')->plainTextToken; }}
         </div>
     </div>
   </div>
