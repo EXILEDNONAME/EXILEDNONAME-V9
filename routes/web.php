@@ -4,27 +4,6 @@ Route::get('/', function () {
   return view('errors.404-custom');
 });
 
-// Route::get('/tokens/create', function (Request $request) {
-//     $token = Auth::user()->createToken('test');
-//     return ['token' => $token->plainTextToken];
-// });
-//
-// Route::get('/generate', function () {
-//   $test = PersonalAccessToken::create([
-//     'tokenable_type'    => 'App\Models\User',
-//     'tokenable_id'      => '1',
-//     'name'              => 'Test',
-//     'abilities'         => '["read","create","update","delete"]',
-//     'token'             => hash('sha256', 'test2'),
-//   ]);
-//
-//   if ($test->token == hash('sha256', 'test2')) {
-//     return hash('sha256', 'test2') . ' Success';
-//   }
-//   else { return 'error'; }
-//
-// });
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
