@@ -116,3 +116,6 @@ Route::group([
   Route::get('trash', 'UserController@trash')->name('trash');
   Route::resource('/', 'UserController')->parameters(['' => 'id']);
 });
+
+Route::get('categories','App\Http\Controllers\CategoryController@index');
+Route::get('categories/{id}','App\Http\Controllers\CategoryController@getCategory')->name('categories');

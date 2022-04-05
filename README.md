@@ -4,6 +4,7 @@
 - Edit Reset Password Via Email
 - Access User Cant Delete Data
 - Management User Web Admin Cant Delete
+- Create Selection Area Ajax
 
 - NEXT
 - Edit Page Messages
